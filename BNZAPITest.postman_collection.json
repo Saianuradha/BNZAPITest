@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "d0bd6e07-9e9f-4050-936f-38c680324167",
+		"name": "BNZAPITest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15092290"
+	},
+	"item": [
+		{
+			"name": "Get All Users and verify users count is greater than 10",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.collectionVariables.set(\"newUserId\", Object.keys(pm.response.json()).length);",
+							"",
+							"pm.test('Number of users are equal to 10', function () {",
+							"   pm.expect(Object.keys(pm.response.json()).length).to.eql(10);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{baseUrl}}/users",
+					"protocol": "https",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var expectedValue = pm.globals.get(\"expectedName\");",
+							"",
+							"pm.test(\"Assert the name of id8, actual vs expected\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql(expectedValue);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{baseUrl}}/users/:id",
+					"protocol": "https",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"{{newUserId}}\",\n    \"name\": \"AssessmentTest\",\n    \"username\": \"AssessmentTest\",\n    \"email\": \"AssessmentTest@test.me\",\n    \"address\": {\n        \"street\": \"Ellsworth1 Summit\",\n        \"suite\": \"Suite 729\",\n        \"city\": \"Aliyaview\",\n        \"zipcode\": \"45169\",\n        \"geo\": {\n            \"lat\": \"-14.3990\",\n            \"lng\": \"-120.7677\"\n        }\n    },\n    \"phone\": \"460.493.6943 x140\",\n    \"website\": \"jacynthe.com\",\n    \"company\": {\n        \"name\": \"Test Group\",\n        \"catchPhrase\": \"Implemented automation concept\",\n        \"bs\": \"e-enable extensible e-tailers\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{baseUrl}}/users",
+					"protocol": "https",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users and verify users count is greater than 10 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Number of users are equal to '+Object.keys(pm.response.json()).length, function () {",
+							"   pm.expect(Object.keys(pm.response.json()).length).to.eql(10);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{baseUrl}}/users",
+					"protocol": "https",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "https://jsonplaceholder.typicode.com/users",
+			"type": "default"
+		},
+		{
+			"key": "newUserId",
+			"value": ""
+		}
+	]
+}
