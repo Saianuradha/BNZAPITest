@@ -51,7 +51,7 @@ jobs:
         
       - name: Run the API and Postman's tests
         run: | 
-          npm init
-          npm run start:dev & sleep 60
-          newman run "BNAZPITest.postman_collection.json"
+          newman --version
+          npm install -g newman-reporter-htmlextra
+          newman run BNAZPITest.postman_collection.json -e BNZAPITest_variables.postman_globals.json --reporters cli,htmlextra --reporter-htmlextra-export testReport.html
    
