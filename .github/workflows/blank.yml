@@ -53,5 +53,5 @@ jobs:
         run: | 
           newman --version
           npm install -g newman-reporter-htmlextra
-          newman run BNAZPITest.postman_collection.json -e BNZAPITest_variables.postman_globals.json --reporters cli,htmlextra --reporter-htmlextra-export testReport.html
+          newman run BNZAPITest.postman_collection.json -e BNZAPITest_variables.postman_globals.json --reporters cli,htmlextra --reporter-htmlextra-export testReport.html
    
