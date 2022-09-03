@@ -55,7 +55,7 @@
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"var expectedValue = pm.globals.get(\"expectedName\");",
+							"var expectedValue = Nicholas Runolfsdottir V",
 							"",
 							"pm.test(\"Assert the name of id8, actual vs expected\", function () {",
 							"    var jsonData = pm.response.json();",

@@ -12,18 +12,6 @@
 			"value": "Nicholas Runolfsdottir V",
 			"type": "default",
 			"enabled": true
-		},
-		{
-			"key": "82266535-3ea7-4ef8-9b6c-d0902f21d6a91",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": 37,
-			"value": "",
-			"type": "any",
-			"enabled": true
 		}
 	],
 	"name": "BNZAPITest_variables",
