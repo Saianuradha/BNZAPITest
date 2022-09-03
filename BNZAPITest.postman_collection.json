@@ -59,7 +59,7 @@
 							"",
 							"pm.test(\"Assert the name of id8, actual vs expected\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.name).to.eql({{expectedValue }});",
+							"    pm.expect(jsonData.name).to.eql(expectedValue);",
 							"});"
 						],
 						"type": "text/javascript"
