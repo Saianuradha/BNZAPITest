@@ -1,4 +1,4 @@
-# BNZAPITest
+# BNZAPITest [![CI](https://github.com/Saianuradha/BNZAPITest/actions/workflows/ci_ubuntu_api.yml/badge.svg)](https://github.com/Saianuradha/BNZAPITest/actions/workflows/ci_ubuntu_api.yml)
 ## Description
 This is an API Automation testing project developed in Postman.
 This project tests are parameterised and CI pipeline integrated with Github Actions.
